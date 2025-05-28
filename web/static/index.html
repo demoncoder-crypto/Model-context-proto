@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blender MCP - AI Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Blender AI Assistant</h1>
+        <p>Describe what you want to do in Blender using natural language.</p>
+        <p><strong>Prerequisites:</strong> Blender must be running with the Blender MCP addon enabled and its server started.</p>
+        
+        <div class="form-group">
+            <label for="natural-command">Enter your command for Blender:</label>
+            <textarea id="natural-command" rows="3" placeholder="e.g., Create a red cube at the center"></textarea>
+        </div>
+        
+        <button id="process-command-button">Process Command</button>
+        
+        <div class="output-group" id="review-section" style="display:none;">
+            <h2>AI's Understanding & Proposed Action:</h2>
+            <pre id="review-area">...</pre>
+            <h3>Generated Blender Python Code (for review):</h3>
+            <pre id="generated-code-area">...</pre>
+            <button id="execute-blender-button" style="display:none;">Confirm & Execute in Blender</button>
+        </div>
+
+        <div class="output-group" id="execution-result-section" style="display:none;">
+            <h2>Execution Result from Blender:</h2>
+            <pre id="output-area">...</pre>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html> 

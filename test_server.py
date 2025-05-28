@@ -66,11 +66,20 @@ import bpy
 
 # Create a test cube
 bpy.ops.mesh.primitive_cube_add(location=(0, 0, 0))
-cube = bpy.context.active_object
-cube.name = "TestCube"
+# Try to get the active object using view_layer
+cube = bpy.context.view_layer.objects.active
+if cube is None:
+    # Fallback or error if still not found (though primitive_cube_add usually sets it)
+    print("ERROR: Could not get active object after creation.")
+    cube_name = "UnknownCube"
+    cube_location = [0,0,0]
+else:
+    cube.name = "TestCube"
+    cube_name = cube.name
+    cube_location = list(cube.location)
 
-print(f"Created object: {cube.name}")
-print(f"Location: {list(cube.location)}")
+print(f"Created object: {cube_name}")
+print(f"Location: {cube_location}")
 """
         
         result = await connection.execute_script(create_script)
